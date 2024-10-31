@@ -1,135 +1,426 @@
 'use client';
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Sample data for cards with region and URL
+  const cardsData = [
+    {
+      title: "Banhof",
+      region: "West Region",
+      modalContent: (
+        <>
+          <p><span className="font-extrabold">IP Address:</span> 95.64.12.34</p>
+          <p><span className="font-extrabold">Location:</span> West Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">CornerStone Distro</td>
+                <td className="border border-gray-300 p-2">192.168.0.18</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/csd</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Kratom Kaps</td>
+                <td className="border border-gray-300 p-2">192.168.82.42</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/kratomkaps</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Chief Kratom</td>
+                <td className="border border-gray-300 p-2">192.168.34.68</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/chiefk</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Konolabs</td>
+                <td className="border border-gray-300 p-2">192.168.72.10</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/konolabs</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Swedish",
+      region: "Northern Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Swedish server.</p>
+          <p>Location: Northern Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Partynuts</td>
+                <td className="border border-gray-300 p-2">92.68.54.20</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/pnuts</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Thailand",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Portugal",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Barcelona",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Germany",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Denver",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Dallas",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Nevada",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>IP Address:192.168.0.1</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Ohio",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>IP Address:192.168.42.59</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Nebraska",
+      region: "Southern Region",
+      modalContent: (
+        <>
+          <p>IP Address: 192.168.23.45</p>
+          <p>Location: Southern Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 3</td>
+                <td className="border border-gray-300 p-2">192.168.0.40</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
+                <td className="border border-gray-300 p-2">Destination C</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Florida",
+      region: "Southern Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Dallas server.</p>
+          <p>Location: Southern Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Server 3</td>
+                <td className="border border-gray-300 p-2">192.168.0.40</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
+                <td className="border border-gray-300 p-2">Destination C</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    // Add other card data here...
+  ];
+
+   // Filter cards based on search term (title, region, URL, or modal content URLs)
+   const filteredCards = cardsData.filter(card =>
+    card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    card.region.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    card.modalContent.props.children.some(child => 
+      typeof child === 'string' && child.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="container text-center pt-32">
+    <>
+      <div className="grid items-center justify-items-center pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="container text-center">
           <h1 className="text-4xl font-extrabold p-6">SERVER LIST</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-          <Card 
-            title="Banhof" 
-            modalContent={
-              <>
-                <p><span className="font-extrabold">IP Address:</span> 95.64.12.34</p>
-                <p><span className="font-extrabold">Location:</span> West Region</p>
-                <table className="min-w-full mt-4 border-collapse border border-gray-300">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 p-2">URL</th>
-                      <th className="border border-gray-300 p-2">IP Address</th>
-                      <th className="border border-gray-300 p-2">Backups</th>
-                      <th className="border border-gray-300 p-2">Source</th>
-                      <th className="border border-gray-300 p-2">Destination</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 p-2">OPMS</td>
-                      <td className="border border-gray-300 p-2">192.168.0.18</td>
-                      <td className="border border-gray-300 p-2">YES</td>
-                      <td className="border border-gray-300 p-2">var/www/sites/opms</td>
-                      <td className="border border-gray-300 p-2">Remarkable Herbs</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Fast Incense</td>
-                      <td className="border border-gray-300 p-2">192.168.0.64</td>
-                      <td className="border border-gray-300 p-2">YES</td>
-                      <td className="border border-gray-300 p-2">var/www/sites/fast_incense</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Partynuts</td>
-                      <td className="border border-gray-300 p-2">192.168.0.128</td>
-                      <td className="border border-gray-300 p-2">NO</td>
-                      <td className="border border-gray-300 p-2">var/www/sites/partynutz</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Remarkable Herbs</td>
-                      <td className="border border-gray-300 p-2">192.168.0.51</td>
-                      <td className="border border-gray-300 p-2">YES</td>
-                      <td className="border border-gray-300 p-2">var/www/sites/remarkableherbs</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">King Kratom</td>
-                      <td className="border border-gray-300 p-2">192.168.0.78</td>
-                      <td className="border border-gray-300 p-2">YES</td>
-                      <td className="border border-gray-300 p-2">var/www/sites/king_kratom</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </>
-            } 
-           />
-          <Card 
-            title="Swedish" 
-            modalContent={
-              <>
-                <p>This is the content for Card 2.</p>
-                <p>Here is some different information.</p>
-                <p>Feel free to customize this as needed.</p>
-                <table className="min-w-full mt-4 border-collapse border border-gray-300">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 p-2">Header 1</th>
-                      <th className="border border-gray-300 p-2">Header 2</th>
-                      <th className="border border-gray-300 p-2">Header 3</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Row 1, Col 1</td>
-                      <td className="border border-gray-300 p-2">Row 1, Col 2</td>
-                      <td className="border border-gray-300 p-2">Row 1, Col 3</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Row 2, Col 1</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 2</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </>
-            } 
+          {/* Search Field */}
+          <input
+            type="text"
+            placeholder="Search servers..."
+            className="border rounded-3xl p-2 w-72 h-14 mb-10"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Card 
-            title="Denver" 
-            modalContent={
-              <>
-                <p>This is the content for Card 3.</p>
-                <p>You can customize this as well.</p>
-                <p>Enjoy using the modal!</p>
-                <table className="min-w-full mt-4 border-collapse border border-gray-300">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 p-2">Header 1</th>
-                      <th className="border border-gray-300 p-2">Header 2</th>
-                      <th className="border border-gray-300 p-2">Header 3</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Row 1, Col 1</td>
-                      <td className="border border-gray-300 p-2">Row 1, Col 2</td>
-                      <td className="border border-gray-300 p-2">Row 1, Col 3</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 p-2">Row 2, Col 1</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 2</td>
-                      <td className="border border-gray-300 p-2">Row 2, Col 3</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </>
-            } 
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-8">
+            {filteredCards.map((card, index) => (
+              <Card key={index} title={card.title} modalContent={card.modalContent} />
+            ))}
+          </div>
+          {/* Other card sections can follow here... */}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -137,14 +428,16 @@ function Card({ title, modalContent }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border rounded-lg shadow-lg p-4 h-48 flex flex-col">
+    <div className="border rounded-lg shadow-lg p-6 h-42 m-4 flex flex-col">
       <h2 className="font-bold text-lg mb-2">{title}</h2>
-      <button
-        className="flex-1 text-left bg-gray-600 rounded p-2 hover:bg-gray-400 transition text-center"
-        onClick={() => setIsOpen(true)}
-      >
-        Open Modal
-      </button>
+      <div className="flex justify-center">
+        <button
+          className="bg-blue-600 rounded p-2 hover:bg-blue-800 transition text-center w-32"
+          onClick={() => setIsOpen(true)}
+        >
+          Open Modal
+        </button>
+      </div>
       {isOpen && (
         <Modal title={title} content={modalContent} onClose={() => setIsOpen(false)} />
       )}
