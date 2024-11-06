@@ -7,12 +7,42 @@ export default function Home() {
   // Sample data for cards with region and URL
   const cardsData = [
     {
-      title: "Banhof",
-      region: "West Region",
+      title: "A2 Hosting",
+      region: "Northern Europe",
       modalContent: (
         <>
-          <p><span className="font-extrabold">IP Address:</span> 95.64.12.34</p>
-          <p><span className="font-extrabold">Location:</span> West Region</p>
+          <p><span className="font-extrabold">IP Address:</span> 94.254.0.215</p>
+          <p><span className="font-extrabold">Region:</span> Northern Europe</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">A1 Wholesale</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/cornerstonedistro</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Banhof",
+      region: "Northern Europe",
+      modalContent: (
+        <>
+          <p><span className="font-extrabold">IP Address:</span> 94.254.0.215</p>
+          <p><span className="font-extrabold">Region:</span> Northern Europe</p>
           <table className="min-w-full mt-4 border-collapse border border-gray-300">
             <thead>
               <tr>
@@ -26,30 +56,44 @@ export default function Home() {
             <tbody>
               <tr>
                 <td className="border border-gray-300 p-2">CornerStone Distro</td>
-                <td className="border border-gray-300 p-2">192.168.0.18</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
                 <td className="border border-gray-300 p-2">YES</td>
-                <td className="border border-gray-300 p-2">var/www/sites/csd</td>
+                <td className="border border-gray-300 p-2">var/www/sites/cornerstonedistro</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Flowtech One</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/flowtechone</td>
                 <td className="border border-gray-300 p-2">ZimaBoard</td>
               </tr>
               <tr>
                 <td className="border border-gray-300 p-2">Kratom Kaps</td>
-                <td className="border border-gray-300 p-2">192.168.82.42</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
                 <td className="border border-gray-300 p-2">YES</td>
                 <td className="border border-gray-300 p-2">var/www/sites/kratomkaps</td>
                 <td className="border border-gray-300 p-2">ZimaBoard</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-2">Chief Kratom</td>
-                <td className="border border-gray-300 p-2">192.168.34.68</td>
+                <td className="border border-gray-300 p-2">Liquid K</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
                 <td className="border border-gray-300 p-2">YES</td>
-                <td className="border border-gray-300 p-2">var/www/sites/chiefk</td>
+                <td className="border border-gray-300 p-2">var/www/sites/liquidk</td>
                 <td className="border border-gray-300 p-2">ZimaBoard</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-2">Konolabs</td>
-                <td className="border border-gray-300 p-2">192.168.72.10</td>
+                <td className="border border-gray-300 p-2">Mediakanna</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
                 <td className="border border-gray-300 p-2">YES</td>
-                <td className="border border-gray-300 p-2">var/www/sites/konolabs</td>
+                <td className="border border-gray-300 p-2">var/www/sites/mediakanna</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">XXX Kratom</td>
+                <td className="border border-gray-300 p-2">94.254.0.215</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/xxxkratom</td>
                 <td className="border border-gray-300 p-2">ZimaBoard</td>
               </tr>
             </tbody>
@@ -58,7 +102,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Swedish",
+      title: "Cloudflare",
       region: "Northern Region",
       modalContent: (
         <>
@@ -76,6 +120,34 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
+                <td className="border border-gray-300 p-2">Green Leaf</td>
+                <td className="border border-gray-300 p-2">92.68.54.20</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/pnuts</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Hemps Company</td>
+                <td className="border border-gray-300 p-2">92.68.54.20</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/pnuts</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Hush Kratom</td>
+                <td className="border border-gray-300 p-2">92.68.54.20</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/pnuts</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Konolabs</td>
+                <td className="border border-gray-300 p-2">92.68.54.20</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/pnuts</td>
+                <td className="border border-gray-300 p-2">ZimaBoard</td>
+              </tr>
+              <tr>
                 <td className="border border-gray-300 p-2">Partynuts</td>
                 <td className="border border-gray-300 p-2">92.68.54.20</td>
                 <td className="border border-gray-300 p-2">YES</td>
@@ -88,7 +160,44 @@ export default function Home() {
       ),
     },
     {
-      title: "Thailand",
+      title: "Google LLC",
+      region: "Central Region",
+      modalContent: (
+        <>
+          <p>This is the content for the Denver server.</p>
+          <p>Location: Central Region</p>
+          <table className="min-w-full mt-4 border-collapse border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 p-2">URL</th>
+                <th className="border border-gray-300 p-2">IP Address</th>
+                <th className="border border-gray-300 p-2">Backups</th>
+                <th className="border border-gray-300 p-2">Source</th>
+                <th className="border border-gray-300 p-2">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 p-2">Flowtech</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Gogona</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ),
+    },
+    {
+      title: "Host Gator",
       region: "Central Region",
       modalContent: (
         <>
@@ -118,7 +227,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Portugal",
+      title: "Hostinger",
       region: "Central Region",
       modalContent: (
         <>
@@ -136,7 +245,7 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">OPMS</td>
                 <td className="border border-gray-300 p-2">192.168.0.30</td>
                 <td className="border border-gray-300 p-2">NO</td>
                 <td className="border border-gray-300 p-2">var/www/sites/denver</td>
@@ -148,7 +257,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Barcelona",
+      title: "iPage",
       region: "Central Region",
       modalContent: (
         <>
@@ -166,7 +275,7 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">A1 Wholesale Distribution</td>
                 <td className="border border-gray-300 p-2">192.168.0.30</td>
                 <td className="border border-gray-300 p-2">NO</td>
                 <td className="border border-gray-300 p-2">var/www/sites/denver</td>
@@ -178,7 +287,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Germany",
+      title: "Miss Hosting",
       region: "Central Region",
       modalContent: (
         <>
@@ -196,7 +305,14 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">Chief Kratom</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Remarkable Herbs</td>
                 <td className="border border-gray-300 p-2">192.168.0.30</td>
                 <td className="border border-gray-300 p-2">NO</td>
                 <td className="border border-gray-300 p-2">var/www/sites/denver</td>
@@ -208,7 +324,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Denver",
+      title: "Network Solutions",
       region: "Central Region",
       modalContent: (
         <>
@@ -226,7 +342,7 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">Functional GlassArt</td>
                 <td className="border border-gray-300 p-2">192.168.0.30</td>
                 <td className="border border-gray-300 p-2">NO</td>
                 <td className="border border-gray-300 p-2">var/www/sites/denver</td>
@@ -238,37 +354,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Dallas",
-      region: "Central Region",
-      modalContent: (
-        <>
-          <p>This is the content for the Denver server.</p>
-          <p>Location: Central Region</p>
-          <table className="min-w-full mt-4 border-collapse border border-gray-300">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 p-2">URL</th>
-                <th className="border border-gray-300 p-2">IP Address</th>
-                <th className="border border-gray-300 p-2">Backups</th>
-                <th className="border border-gray-300 p-2">Source</th>
-                <th className="border border-gray-300 p-2">Destination</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
-                <td className="border border-gray-300 p-2">192.168.0.30</td>
-                <td className="border border-gray-300 p-2">NO</td>
-                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
-                <td className="border border-gray-300 p-2">Destination B</td>
-              </tr>
-            </tbody>
-          </table>
-        </>
-      ),
-    },
-    {
-      title: "Nevada",
+      title: "Nexcess",
       region: "Central Region",
       modalContent: (
         <>
@@ -298,7 +384,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Ohio",
+      title: "Site Ground",
       region: "Central Region",
       modalContent: (
         <>
@@ -316,7 +402,14 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 2</td>
+                <td className="border border-gray-300 p-2">Boss Botanicals</td>
+                <td className="border border-gray-300 p-2">192.168.0.30</td>
+                <td className="border border-gray-300 p-2">NO</td>
+                <td className="border border-gray-300 p-2">var/www/sites/denver</td>
+                <td className="border border-gray-300 p-2">Destination B</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Island Kava</td>
                 <td className="border border-gray-300 p-2">192.168.0.30</td>
                 <td className="border border-gray-300 p-2">NO</td>
                 <td className="border border-gray-300 p-2">var/www/sites/denver</td>
@@ -328,7 +421,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Nebraska",
+      title: "Spectrum",
       region: "Southern Region",
       modalContent: (
         <>
@@ -346,7 +439,14 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 3</td>
+                <td className="border border-gray-300 p-2">Nic-Pac</td>
+                <td className="border border-gray-300 p-2">192.168.0.40</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
+                <td className="border border-gray-300 p-2">Destination C</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">PuffnStuff</td>
                 <td className="border border-gray-300 p-2">192.168.0.40</td>
                 <td className="border border-gray-300 p-2">YES</td>
                 <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
@@ -358,7 +458,7 @@ export default function Home() {
       ),
     },
     {
-      title: "Florida",
+      title: "WebsiteWelcome",
       region: "Southern Region",
       modalContent: (
         <>
@@ -376,7 +476,14 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2">Server 3</td>
+                <td className="border border-gray-300 p-2">Colorado CBD</td>
+                <td className="border border-gray-300 p-2">192.168.0.40</td>
+                <td className="border border-gray-300 p-2">YES</td>
+                <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
+                <td className="border border-gray-300 p-2">Destination C</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2">Homegrown Hemp</td>
                 <td className="border border-gray-300 p-2">192.168.0.40</td>
                 <td className="border border-gray-300 p-2">YES</td>
                 <td className="border border-gray-300 p-2">var/www/sites/dallas</td>
@@ -408,7 +515,7 @@ export default function Home() {
           <input
             type="text"
             placeholder="Search servers..."
-            className="border rounded-3xl p-2 w-72 h-14 mb-10"
+            className="border rounded-3xl p-2 w-72 h-14 mb-10 text-black"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -435,7 +542,7 @@ function Card({ title, modalContent }) {
           className="bg-blue-600 rounded p-2 hover:bg-blue-800 transition text-center w-32"
           onClick={() => setIsOpen(true)}
         >
-          Open Modal
+          View More
         </button>
       </div>
       {isOpen && (
